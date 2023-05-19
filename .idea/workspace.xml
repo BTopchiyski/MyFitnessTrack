@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349ef9e0-3608-4616-ab6c-43163b858210" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
