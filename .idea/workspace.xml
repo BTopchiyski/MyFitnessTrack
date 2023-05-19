@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349ef9e0-3608-4616-ab6c-43163b858210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_jakarta_mail_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_3_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_3_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_6_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_6_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_6_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_0_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/VerificationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/RegistrationCompleteEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/listener/RegistrationCompleteEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/model/UserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/VerificationTokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/service/EmailSenderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
