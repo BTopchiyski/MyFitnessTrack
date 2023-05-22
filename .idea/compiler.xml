@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="myfitnesstrack-api" target="11" />
+      <module name="myfitnesstrack-api" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
