@@ -1,6 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.repository;
 
-import com.myfitnesstrack.myfitnesstrackapi.entity.VerificationToken;
+import com.myfitnesstrack.myfitnesstrackapi.token.VerificationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
