@@ -1,4 +1,4 @@
-package com.myfitnesstrack.myfitnesstrackapi.entity;
+package com.myfitnesstrack.myfitnesstrackapi.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,7 +36,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return role.getAuthorities();
     }
 
     @Override

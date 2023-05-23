@@ -1,6 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.event;
 
-import com.myfitnesstrack.myfitnesstrackapi.entity.User;
+import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
