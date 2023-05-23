@@ -5,100 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349ef9e0-3608-4616-ab6c-43163b858210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_11_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_11_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_11_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/token/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/token/VerificationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_4_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_4_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_14_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_commons_1_10_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_observation_1_10_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_inject_jakarta_inject_api_2_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_23.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_23.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_19_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_10_1_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_10_1_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_23_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_jakarta_mail_1_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_orm_hibernate_core_6_1_7_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_3_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_3_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_3_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_6_0_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/ManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/user/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/RegistrationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/VerificationToken.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/listener/RegistrationCompleteEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/listener/RegistrationCompleteEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/RegistrationCompleteEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/event/RegistrationCompleteEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/VerificationTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/repository/VerificationTokenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/token/VerificationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/token/VerificationToken.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -182,6 +101,7 @@
       <recent name="com.myfitnesstrack.myfitnesstrackapi.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.myfitnesstrack.myfitnesstrackapi.controller" />
       <recent name="com.myfitnesstrack.myfitnesstrackapi.config" />
     </key>
   </component>
@@ -234,6 +154,7 @@
       <workItem from="1684711638290" duration="2672000" />
       <workItem from="1684738065805" duration="1228000" />
       <workItem from="1684740196528" duration="27000" />
+      <workItem from="1684859202414" duration="7079000" />
     </task>
     <servers />
   </component>

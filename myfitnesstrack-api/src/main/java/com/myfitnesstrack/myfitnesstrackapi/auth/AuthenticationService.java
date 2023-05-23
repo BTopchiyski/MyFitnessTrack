@@ -1,7 +1,7 @@
 package com.myfitnesstrack.myfitnesstrackapi.auth;
 
-import com.myfitnesstrack.myfitnesstrackapi.entity.Role;
-import com.myfitnesstrack.myfitnesstrackapi.entity.User;
+import com.myfitnesstrack.myfitnesstrackapi.user.Role;
+import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.repository.UserRepository;
 import com.myfitnesstrack.myfitnesstrackapi.config.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class AuthenticationService {
                 .lastName(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(request.getRole())
                 .build();
         repository.save(user);
 

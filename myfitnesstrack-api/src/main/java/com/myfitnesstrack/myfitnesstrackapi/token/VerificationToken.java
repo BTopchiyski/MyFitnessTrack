@@ -1,6 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.token;
 
-import com.myfitnesstrack.myfitnesstrackapi.entity.User;
+import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
