@@ -1,6 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.config;
 
-import com.myfitnesstrack.myfitnesstrackapi.repository.UserRepository;
+import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +40,6 @@ public class ApplicationConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(11);
+        return new BCryptPasswordEncoder();
     }
 }

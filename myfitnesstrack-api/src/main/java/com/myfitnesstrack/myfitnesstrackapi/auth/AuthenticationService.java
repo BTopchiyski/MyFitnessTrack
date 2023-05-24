@@ -1,20 +1,27 @@
 package com.myfitnesstrack.myfitnesstrackapi.auth;
 
-import com.myfitnesstrack.myfitnesstrackapi.user.Role;
+import com.myfitnesstrack.myfitnesstrackapi.token.Token;
+import com.myfitnesstrack.myfitnesstrackapi.token.TokenRepository;
+import com.myfitnesstrack.myfitnesstrackapi.token.TokenType;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
-import com.myfitnesstrack.myfitnesstrackapi.repository.UserRepository;
+import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import com.myfitnesstrack.myfitnesstrackapi.config.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import static com.myfitnesstrack.myfitnesstrackapi.user.Role.USER;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 
     private final UserRepository repository;
+
+    private final TokenRepository tokenRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -28,16 +35,17 @@ public class AuthenticationService {
                 .lastName(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(request.getRole())
+                .role(USER)
                 .build();
-        repository.save(user);
-
+        var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
+        saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
 
+    @Transactional
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -45,11 +53,35 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
-        var user = repository.findByEmail(request.getEmail())
+        User user = repository.findByEmail(request.getEmail())
                 .orElseThrow();
-        var jwtToken = jwtService.generateToken(user);
+        String jwtToken = jwtService.generateToken(user);
+        revokeAllUserTokens(user);
+        saveUserToken(user, jwtToken);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    private void revokeAllUserTokens(User user) {
+        var validUserTokens = tokenRepository.findAllValidTokensByUser(user.getId());
+        if (validUserTokens.isEmpty())
+            return;
+        validUserTokens.forEach(t -> {
+            t.setExpired(true);
+            t.setRevoked(true);
+        });
+        tokenRepository.saveAll(validUserTokens);
+    }
+
+    private void saveUserToken(User user, String jwtToken) {
+        var token = Token.builder()
+                .user(user)
+                .token(jwtToken)
+                .tokenType(TokenType.BEARER)
+                .revoked(false)
+                .expired(false)
+                .build();
+        tokenRepository.save(token);
     }
 }
