@@ -17,5 +17,4 @@ public class MyfitnesstrackApiApplication {
 		SpringApplication.run(MyfitnesstrackApiApplication.class, args);
 	}
 
-
 }
