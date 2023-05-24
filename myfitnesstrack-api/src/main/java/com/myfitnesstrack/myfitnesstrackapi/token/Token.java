@@ -3,17 +3,14 @@ package com.myfitnesstrack.myfitnesstrackapi.token;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Value;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class VerificationToken {
+public class Token {
 
-    @Value("${expiration.time.jwt}")
-    private Long EXPIRATION_TIME;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,12 +21,12 @@ public class VerificationToken {
     @Enumerated(EnumType.STRING)
     public TokenType tokenType = TokenType.BEARER;
 
-    public boolean revoked;
-
     public boolean expired;
+
+    public boolean revoked;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    public User user;
+    private User user;
 }
 
