@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349ef9e0-3608-4616-ab6c-43163b858210" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/46a37ad5-d614-4eaf-b60b-c2bdf80f1549.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/46a37ad5-d614-4eaf-b60b-c2bdf80f1549.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/7f114564-23bf-4acb-9413-d838f29b2395.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7f114564-23bf-4acb-9413-d838f29b2395.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/MyfitnesstrackApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/auth/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/ManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/controller/ManagementController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +151,8 @@
       <workItem from="1684711638290" duration="2672000" />
       <workItem from="1684738065805" duration="1228000" />
       <workItem from="1684740196528" duration="27000" />
-      <workItem from="1684859202414" duration="26149000" />
+      <workItem from="1684859202414" duration="26876000" />
+      <workItem from="1685094338707" duration="1490000" />
     </task>
     <servers />
   </component>
@@ -175,29 +178,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.3/spring-security-web-6.0.3.jar!/org/springframework/security/web/FilterChainProxy.class</url>
-          <line>79</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.3/spring-security-web-6.0.3.jar!/org/springframework/security/web/FilterChainProxy.class</url>
-          <line>80</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.3/spring-security-web-6.0.3.jar!/org/springframework/security/web/FilterChainProxy.class</url>
-          <line>82</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.3/spring-security-web-6.0.3.jar!/org/springframework/security/web/FilterChainProxy.class</url>
-          <line>252</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/6.0.3/spring-security-web-6.0.3.jar!/org/springframework/security/web/access/intercept/AuthorizationFilter.class</url>
-          <line>52</line>
-          <option name="timeStamp" value="47" />
+          <url>file://$PROJECT_DIR$/myfitnesstrack-api/src/main/java/com/myfitnesstrack/myfitnesstrackapi/config/JwtAuthenticationFilter.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
