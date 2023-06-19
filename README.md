@@ -21,6 +21,7 @@ https://www.figma.com/proto/doCa8hoztnZbR2J3b2xKeh/MyFitnessTrack-App?node-id=10
 - JSON Web Tokens (JWT)
 - BCrypt
 - Maven
+- React Native
 
 
 ## [Getting Started]
