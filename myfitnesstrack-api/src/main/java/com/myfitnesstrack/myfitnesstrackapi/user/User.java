@@ -1,5 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.user;
 
+import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
 import jakarta.persistence.*;
@@ -46,6 +47,12 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     private List<ProgressTable> progressTables;
+
+    @OneToOne(mappedBy = "user")
+    private Measurement measurement;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
