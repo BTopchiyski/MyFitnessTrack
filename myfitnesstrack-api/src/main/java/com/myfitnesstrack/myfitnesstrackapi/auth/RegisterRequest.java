@@ -1,5 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.auth;
 
+import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,5 +17,6 @@ public class RegisterRequest {
     private String lastname;
     private String email;
     private String password;
+    private Gender gender;
     private Role role;
 }
