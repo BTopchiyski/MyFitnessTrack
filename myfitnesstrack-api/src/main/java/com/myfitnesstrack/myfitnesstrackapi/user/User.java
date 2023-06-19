@@ -1,9 +1,12 @@
 package com.myfitnesstrack.myfitnesstrackapi.user;
 
+import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -39,6 +42,10 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     private List<Token> tokens;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
+    private List<ProgressTable> progressTables;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
