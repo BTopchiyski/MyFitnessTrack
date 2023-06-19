@@ -4,6 +4,9 @@ import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.Fetch;
@@ -28,12 +31,19 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "First name is required")
     private String firstName;
+
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
+    @Email(message = "Invalid email address")
+    @NotBlank(message = "Email is required")
     @Column(unique = true)
     private String email;
 
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     @Column(length = 60)
     private String password;
 
