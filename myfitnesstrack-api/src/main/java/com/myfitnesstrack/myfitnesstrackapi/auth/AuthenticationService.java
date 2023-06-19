@@ -57,6 +57,10 @@ public class AuthenticationService {
                 .build();
     }
 
+    public boolean userExists(String email){
+        return repository.findByEmail(email).isPresent();
+    }
+
     @Transactional
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
