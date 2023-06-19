@@ -27,7 +27,7 @@ public class AuthenticationController {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(AuthenticationResponse.builder()
-                            .error("User already exists!")
+                            .error("User already exists")
                             .build());
         }
         return ResponseEntity.ok(service.register(request));
@@ -37,6 +37,13 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request
     ) {
+        if(!service.userExists(request.getEmail())){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(AuthenticationResponse.builder()
+                            .error("Invalid email or password")
+                            .build());
+        }
         return ResponseEntity.ok(service.authenticate(request));
     }
 
