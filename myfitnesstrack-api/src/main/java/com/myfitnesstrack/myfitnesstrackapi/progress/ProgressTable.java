@@ -2,6 +2,8 @@ package com.myfitnesstrack.myfitnesstrackapi.progress;
 
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -23,12 +25,15 @@ public class ProgressTable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Min(value = 0, message = "Weight must be a positive value")
     @Column(name = "weight_kg")
     private double weightInKilograms;
 
+    @Min(value = 0, message = "Calories taken must be a positive value")
     @Column(name = "calories_taken")
     private int caloriesTaken;
 
+    @NotNull(message = "Date is required")
     private LocalDate date;
 
 }
