@@ -85,6 +85,7 @@ public class MacronutrientController {
         response.setCarbohydrateGrams(split.getCarbohydrates());
         response.setFatGrams(split.getFats());
         response.setFatPercentage(split.getFatPercentage());
+        response.setGoal(split.getGoal());
 
         return response;
     }
@@ -97,6 +98,7 @@ public class MacronutrientController {
                 .proteinPercentage(macronutrient.getProteinPercent())
                 .fatGrams(macronutrient.getFats())
                 .fatPercentage(macronutrient.getFatPercent())
+                .goal(macronutrient.getGoal())
                 .build();
         return response;
 
