@@ -17,7 +17,7 @@ public class MyfitnesstrackApiApplication {
 		SpringApplication.run(MyfitnesstrackApiApplication.class, args);
 	}
 
-	@Bean
+/*	@Bean
 	public CommandLineRunner commandLineRunner(
 			AuthenticationService service
 	) {
@@ -41,5 +41,5 @@ public class MyfitnesstrackApiApplication {
 			System.out.println("Manager token: " + service.register(manager).getAccessToken());
 
 		};
-	}
+	}*/
 }
