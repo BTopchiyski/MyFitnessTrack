@@ -19,10 +19,17 @@ public class ProgressTableService {
     private final UserRepository userRepository;
 
     public ProgressTable createProgressEntry(ProgressTableRequest request, User user) {
+        LocalDate currentDate = LocalDate.now();
+        Optional<ProgressTable> existingEntry = progressTableRepository.findByUserAndDate(user, currentDate);
+
+        if (existingEntry.isPresent()) {
+            throw new IllegalArgumentException("A progress entry for the current date already exists.");
+        }
+
         ProgressTable progressEntry = new ProgressTable();
-        progressEntry.setWeightInKilograms(request.getWeightInKilograms());
-        progressEntry.setCaloriesTaken(request.getCaloriesTaken());
-        progressEntry.setDate(request.getDate());
+        progressEntry.setWeightInKilograms(request.getWeight());
+        progressEntry.setCaloriesTaken(request.getCalories());
+        progressEntry.setDate(currentDate);
         progressEntry.setUser(user);
 
         return progressTableRepository.save(progressEntry);
@@ -56,9 +63,9 @@ public class ProgressTableService {
                 return null;
             }
 
-            progressEntry.setWeightInKilograms(request.getWeightInKilograms());
-            progressEntry.setCaloriesTaken(request.getCaloriesTaken());
-            progressEntry.setDate(request.getDate());
+            progressEntry.setWeightInKilograms(request.getWeight());
+            progressEntry.setCaloriesTaken(request.getCalories());
+            progressEntry.setDate(LocalDate.now());
 
             return progressTableRepository.save(progressEntry);
         } else {

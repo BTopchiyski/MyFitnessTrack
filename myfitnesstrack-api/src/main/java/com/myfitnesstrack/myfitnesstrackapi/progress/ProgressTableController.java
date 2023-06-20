@@ -1,10 +1,14 @@
 package com.myfitnesstrack.myfitnesstrackapi.progress;
 
+import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.CalorieResponse;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
+import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,16 +19,30 @@ import java.util.List;
 public class ProgressTableController {
 
     private final ProgressTableService progressTableService;
+    private final UserRepository userRepository;
 
     @PostMapping
     public ResponseEntity<ProgressTableResponse> createProgressEntry(
-            @RequestBody ProgressTableRequest request,
-            @AuthenticationPrincipal User user
+            @RequestBody ProgressTableRequest request
     ) {
-        ProgressTable savedEntry = progressTableService.createProgressEntry(request, user);
-        ProgressTableResponse response = ProgressTableResponseMapper.mapProgressEntryToResponse(savedEntry);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+            try{
+                ProgressTable savedEntry = progressTableService.createProgressEntry(request, user);
+                ProgressTableResponse response = ProgressTableResponseMapper.mapProgressEntryToResponse(savedEntry);
+                return ResponseEntity.status(HttpStatus.CREATED).body(response);
+            } catch (IllegalArgumentException e) {
+                ProgressTableResponse errorResponse = ProgressTableResponse.builder()
+                        .error(e.getMessage())
+                        .build();
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
     @GetMapping
