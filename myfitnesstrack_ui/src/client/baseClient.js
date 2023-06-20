@@ -1,5 +1,6 @@
 const { default: AsyncStorage } = require("@react-native-async-storage/async-storage");
 const { SERVER_URL, BEARER_TOKEN_STORAGE_KEY } = require("./constants");
+import { isEmpty } from 'lodash'
 
 
 export default class BaseClient {
@@ -23,12 +24,14 @@ export default class BaseClient {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${await this.getBearerToken()}`
             }
-            const response = await fetch(url, { method, headers: { ...defaultHeaders, ...headers }, body: JSON.stringify(body) })
-            const responseJson = await response.json()
+            const response = await fetch(url, { method, headers: { ...defaultHeaders, ...headers }, body: body && JSON.stringify(body) })
+            const responseText = await response.text()
+            const responseJson = isEmpty(responseText) ? '' : JSON.parse(responseText)
+            if(!response.ok) throw responseJson
             return responseJson
         } catch (error) {
             console.error(error);
-            return { error }
+            return error
         }
     }
 }

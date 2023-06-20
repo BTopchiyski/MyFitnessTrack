@@ -4,8 +4,8 @@ import { isEmpty } from 'lodash'
 
 class AuthClient extends BaseClient {
     async _genericAuthenticate(endpoint, body) {
-        const response = await this.makeRequest(endpoint, 'POST', { ...body })
-        if(!isEmpty(response?.access_token)) {
+        const response = await this.makeRequest(endpoint, 'POST', { ...body }, { 'Authorization': null })
+        if(!isEmpty(response?.access_token) && isEmpty(response?.error)) {
             await BaseClient.setBearerToken(response.access_token)
         }
         return response;
@@ -21,6 +21,16 @@ class AuthClient extends BaseClient {
     async logout() {
         await BaseClient.setBearerToken('')
         return await this.makeRequest('auth/logout', 'POST')
+    }
+
+    async check() {
+        const response = await this.makeRequest('auth/user');
+        if(isEmpty(response)) {
+            // Clear local token
+            await BaseClient.setBearerToken('');
+            //
+        }
+        return response;
     }
 }
 
