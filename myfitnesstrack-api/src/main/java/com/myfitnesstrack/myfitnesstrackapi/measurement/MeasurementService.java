@@ -27,8 +27,10 @@ public class MeasurementService {
                 .height(measurementRequest.getHeight())
                 .waistCircumference(measurementRequest.getWaistCircumference())
                 .hipCircumference(measurementRequest.getHipCircumference())
+                .neckCircumference(measurementRequest.getNeckCircumference())
                 .wristCircumference(measurementRequest.getWristCircumference())
                 .forearmCircumference(measurementRequest.getForearmCircumference())
+                .activityLevel(measurementRequest.getActivityLevel())
                 .build();
         measurement.setUser(user);
         measurementRepository.save(measurement);
@@ -42,12 +44,8 @@ public class MeasurementService {
         return measurementRepository.findById(id).orElse(null);
     }
 
-    public List<Measurement> getMeasurementsByUser(Long userId) {
-        List<Measurement> measurements = measurementRepository.findByUserId(userId);
-        if (measurements.isEmpty()) {
-            return null;
-        }
-        return measurements;
+    public Measurement getMeasurementsByUser(Long userId) {
+        return measurementRepository.findByUserId(userId);
     }
 
     @Transactional
@@ -63,6 +61,7 @@ public class MeasurementService {
         measurement.setHipCircumference(measurementRequest.getHipCircumference());
         measurement.setWristCircumference(measurementRequest.getWristCircumference());
         measurement.setForearmCircumference(measurementRequest.getForearmCircumference());
+        measurement.setActivityLevel(measurementRequest.getActivityLevel());
         Measurement updatedMeasurement = measurementRepository.save(measurement);
         return updatedMeasurement;
     }

@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -38,6 +39,16 @@ public class AuthenticationService {
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
+
+    public User getUserByToken(String token) {
+        String userEmail = jwtService.extractUsername(token);
+        if (userEmail != null) {
+            var user = repository.findByEmail(userEmail)
+                    .orElseThrow();
+            return user;
+        }
+        return null;
+    }
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()

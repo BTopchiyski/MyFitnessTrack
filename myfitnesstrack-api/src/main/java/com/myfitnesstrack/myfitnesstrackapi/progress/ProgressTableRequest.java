@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProgressTableRequest {
-    private double weightInKilograms;
-    private int caloriesTaken;
-    private LocalDate date;
+    private double weight;
+    private int calories;
+    //private LocalDate date; get date in service
 
 }

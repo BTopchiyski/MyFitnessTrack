@@ -16,6 +16,7 @@ public class MeasurementResponseMapper {
                 .hipCircumference(measurement.getHipCircumference())
                 .wristCircumference(measurement.getWristCircumference())
                 .forearmCircumference(measurement.getForearmCircumference())
+                .neckCircumference(measurement.getNeckCircumference())
                 .build();
     }
 

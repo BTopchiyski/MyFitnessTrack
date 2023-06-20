@@ -1,7 +1,7 @@
 package com.myfitnesstrack.myfitnesstrackapi.measurement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.myfitnesstrack.myfitnesstrackapi.user.User;
+import com.myfitnesstrack.myfitnesstrackapi.activityLevel.ActivityLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,6 +38,12 @@ public class MeasurementResponse {
 
     @JsonProperty("forearmCircumference")
     private double forearmCircumference;
+
+    @JsonProperty("neckCircumference")
+    private double neckCircumference;
+
+    @JsonProperty("activityLevel")
+    private ActivityLevel activityLevel;
 
     private String error;
 }

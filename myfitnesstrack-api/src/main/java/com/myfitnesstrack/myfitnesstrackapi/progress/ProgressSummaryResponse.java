@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProgressTableResponse {
-    private double weight;
-    private int calories;
-
-    private String error;
+public class ProgressSummaryResponse {
+    @JsonProperty("averageCalories")
+    private double averageCaloriesTaken;
+    @JsonProperty("averageWeight")
+    private double averageWeight;
 }

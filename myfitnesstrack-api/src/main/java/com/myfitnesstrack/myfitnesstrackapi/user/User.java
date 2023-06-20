@@ -1,5 +1,8 @@
 package com.myfitnesstrack.myfitnesstrackapi.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.Calorie;
+import com.myfitnesstrack.myfitnesstrackapi.macronutrient.Macronutrient;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
@@ -50,16 +53,27 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     private List<Token> tokens;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     private List<ProgressTable> progressTables;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private Measurement measurement;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user")
+    private Macronutrient macronutrient;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user")
+    private Calorie calorieGoal;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -78,6 +92,8 @@ public class User implements UserDetails {
     public String getUsername() {
         return email;
     }
+
+    public Gender getGender() { return gender; }
 
     @Override
     public boolean isAccountNonExpired() {

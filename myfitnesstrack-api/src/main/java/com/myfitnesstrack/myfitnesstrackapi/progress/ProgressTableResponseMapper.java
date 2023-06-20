@@ -7,10 +7,8 @@ public class ProgressTableResponseMapper {
 
     public static ProgressTableResponse mapProgressEntryToResponse(ProgressTable progressEntry) {
         return ProgressTableResponse.builder()
-                .id(progressEntry.getId())
-                .weightInKilograms(progressEntry.getWeightInKilograms())
-                .caloriesTaken(progressEntry.getCaloriesTaken())
-                .date(progressEntry.getDate())
+                .weight(progressEntry.getWeightInKilograms())
+                .calories(progressEntry.getCaloriesTaken())
                 .build();
     }
 

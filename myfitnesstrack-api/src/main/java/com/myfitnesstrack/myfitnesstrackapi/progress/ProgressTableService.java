@@ -5,6 +5,7 @@ import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +19,17 @@ public class ProgressTableService {
     private final UserRepository userRepository;
 
     public ProgressTable createProgressEntry(ProgressTableRequest request, User user) {
+        LocalDate currentDate = LocalDate.now();
+        Optional<ProgressTable> existingEntry = progressTableRepository.findByUserAndDate(user, currentDate);
+
+        if (existingEntry.isPresent()) {
+            throw new IllegalArgumentException("A progress entry for the current date already exists.");
+        }
+
         ProgressTable progressEntry = new ProgressTable();
-        progressEntry.setWeightInKilograms(request.getWeightInKilograms());
-        progressEntry.setCaloriesTaken(request.getCaloriesTaken());
-        progressEntry.setDate(request.getDate());
+        progressEntry.setWeightInKilograms(request.getWeight());
+        progressEntry.setCaloriesTaken(request.getCalories());
+        progressEntry.setDate(currentDate);
         progressEntry.setUser(user);
 
         return progressTableRepository.save(progressEntry);
@@ -55,9 +63,9 @@ public class ProgressTableService {
                 return null;
             }
 
-            progressEntry.setWeightInKilograms(request.getWeightInKilograms());
-            progressEntry.setCaloriesTaken(request.getCaloriesTaken());
-            progressEntry.setDate(request.getDate());
+            progressEntry.setWeightInKilograms(request.getWeight());
+            progressEntry.setCaloriesTaken(request.getCalories());
+            progressEntry.setDate(LocalDate.now());
 
             return progressTableRepository.save(progressEntry);
         } else {
@@ -78,5 +86,41 @@ public class ProgressTableService {
         } else {
             return false;
         }
+    }
+
+    public ProgressSummary getWeeklyProgress(Long userId) {
+        LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()){
+            List<ProgressTable> entries = progressTableRepository.findByUserAndDateAfter(user, sevenDaysAgo);
+            return calculateAverageProgress(entries);
+        }
+        return new ProgressSummary(0, 0);
+    }
+
+    public ProgressSummary getMonthlyProgress(Long userId) {
+        LocalDate oneMonthAgo = LocalDate.now().minusDays(30);
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()){
+            List<ProgressTable> entries = progressTableRepository.findByUserAndDateAfter(user, oneMonthAgo);
+            return calculateAverageProgress(entries);
+        }
+        return new ProgressSummary(0, 0);
+    }
+
+    public ProgressSummary calculateAverageProgress(List<ProgressTable> entries) {
+        double totalCaloriesTaken = 0;
+        double totalWeight = 0;
+
+        for (ProgressTable entry : entries) {
+            totalCaloriesTaken += entry.getCaloriesTaken();
+            totalWeight += entry.getWeightInKilograms();
+        }
+
+        double averageCaloriesTaken = entries.isEmpty() ? 0 : (double) totalCaloriesTaken / entries.size();
+        double averageWeight = entries.isEmpty() ? 0 : totalWeight / entries.size();
+
+        ProgressSummary progressSummary = new ProgressSummary(averageCaloriesTaken, averageWeight);
+        return progressSummary;
     }
 }
