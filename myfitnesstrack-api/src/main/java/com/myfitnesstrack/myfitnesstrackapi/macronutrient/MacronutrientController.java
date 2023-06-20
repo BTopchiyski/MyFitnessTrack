@@ -106,7 +106,7 @@ public class MacronutrientController {
 
     @PostMapping
     public ResponseEntity<MacronutrientResponse> saveMacronutrients(
-            MacronutrientRequest macronutrientRequest
+            @RequestBody MacronutrientRequest macronutrientRequest
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -116,7 +116,9 @@ public class MacronutrientController {
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             if (user.getMacronutrient() != null) {
+                macronutrientRepository.delete(user.getMacronutrient());
                 Macronutrient macronutrient = createMacronutrients(macronutrientRequest, user);
+                macronutrientRepository.save(macronutrient);
                 user.setMacronutrient(macronutrient);
                 userRepository.save(user);
                 MacronutrientResponse response = getMacronutrientResponse(macronutrient);
@@ -141,6 +143,7 @@ public class MacronutrientController {
         macronutrient.setProteinPercent(macronutrientRequest.getProteinPercentage());
         macronutrient.setFats(macronutrientRequest.getFatGrams());
         macronutrient.setFatPercent(macronutrientRequest.getFatPercentage());
+        macronutrient.setGoal(macronutrientRequest.getGoal());
         macronutrient.setUser(user);
         return macronutrient;
     }
