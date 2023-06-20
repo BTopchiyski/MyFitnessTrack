@@ -29,6 +29,7 @@ public class MeasurementService {
                 .hipCircumference(measurementRequest.getHipCircumference())
                 .wristCircumference(measurementRequest.getWristCircumference())
                 .forearmCircumference(measurementRequest.getForearmCircumference())
+                .activityLevel(measurementRequest.getActivityLevel())
                 .build();
         measurement.setUser(user);
         measurementRepository.save(measurement);
@@ -63,6 +64,7 @@ public class MeasurementService {
         measurement.setHipCircumference(measurementRequest.getHipCircumference());
         measurement.setWristCircumference(measurementRequest.getWristCircumference());
         measurement.setForearmCircumference(measurementRequest.getForearmCircumference());
+        measurement.setActivityLevel(measurementRequest.getActivityLevel());
         Measurement updatedMeasurement = measurementRepository.save(measurement);
         return updatedMeasurement;
     }

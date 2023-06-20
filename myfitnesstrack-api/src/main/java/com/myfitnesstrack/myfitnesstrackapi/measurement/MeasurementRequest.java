@@ -1,5 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.measurement;
 
+import com.myfitnesstrack.myfitnesstrackapi.activityLevel.ActivityLevel;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,4 +21,5 @@ public class MeasurementRequest {
     private double wristCircumference;
     private double forearmCircumference;
     private double neckCircumference;
+    private ActivityLevel activityLevel;
 }
