@@ -31,7 +31,7 @@ public class ProgressTable {
 
     @Min(value = 0, message = "Calories taken must be a positive value")
     @Column(name = "calories_taken")
-    private double caloriesTaken;
+    private int caloriesTaken;
 
     @NotNull(message = "Date is required")
     private LocalDate date;
