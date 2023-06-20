@@ -1,7 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.macronutrient;
 
-import com.myfitnesstrack.myfitnesstrackapi.calculator.CalorieCalculator;
-import com.myfitnesstrack.myfitnesstrackapi.macronutrient.MacronutrientSplit;
+import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.CalorieCalculator;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;

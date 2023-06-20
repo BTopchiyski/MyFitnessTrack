@@ -1,18 +1,19 @@
 package com.myfitnesstrack.myfitnesstrackapi.calculator;
 
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
-import com.myfitnesstrack.myfitnesstrackapi.measurement.MeasurementRepository;
 import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class BodyFatCalculator {
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public double calculateBodyFat(Measurement measurement){
         Optional<User> user = userRepository.findById(measurement.getUser().getId());

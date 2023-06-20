@@ -1,7 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.measurement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
