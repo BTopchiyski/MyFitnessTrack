@@ -19,7 +19,7 @@ public class CalorieCalculator {
 
     public double calculateBMR(Measurement measurement){
         double leanBodyMass = bodyFatCalculator.calculateLeanBodyMass(measurement);
-        double activityLevel = Double.parseDouble(measurement.getActivityLevel().toString());
+        double activityLevel = measurement.getActivityLevel().getNumericValue();
         double ageFactor = this.calculateAgeFactor(measurement);
         double bmr = 370 - ageFactor + (21.6 * leanBodyMass);
         return bmr  * activityLevel;
@@ -36,18 +36,18 @@ public class CalorieCalculator {
 
 
     public double calculateMaintainCaloriest(Measurement measurement){
-        return this.calculateBMR(measurement);
+        return Math.round(this.calculateBMR(measurement));
     }
 
     public double calculateWeightLossCalories(Measurement measurement){
         double maintainCalories = this.calculateBMR(measurement);
         double mildWeightLoss = maintainCalories * 15 / 100;
-        return maintainCalories - mildWeightLoss;
+        return Math.round(maintainCalories - mildWeightLoss);
     }
 
     public double calculateWeightGainCalories(Measurement measurement){
         double maintainCalories = this.calculateBMR(measurement);
-        return maintainCalories + 400;
+        return Math.round(maintainCalories + 400);
     }
 
 }
