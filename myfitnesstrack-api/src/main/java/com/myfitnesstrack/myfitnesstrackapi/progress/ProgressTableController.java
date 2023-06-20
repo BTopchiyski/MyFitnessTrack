@@ -59,6 +59,38 @@ public class ProgressTableController {
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping("/user/{userId}/weekly")
+    public ResponseEntity<ProgressSummaryResponse> getWeeklyProgressEntriesByUser(
+            @PathVariable("userId") Long userId
+    ) {
+        ProgressSummary progressEntries = progressTableService.getWeeklyProgress(userId);
+        if (progressEntries != null) {
+            ProgressSummaryResponse progressSummaryResponse = new ProgressSummaryResponse();
+            progressSummaryResponse.builder()
+                    .averageWeight(progressEntries.getAverageWeight())
+                    .averageWeight(progressEntries.getAverageCaloriesTaken())
+                    .build();
+            return ResponseEntity.ok(progressSummaryResponse);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/user/{userId}/monthly")
+    public ResponseEntity<ProgressSummaryResponse> getMonthlyProgressEntriesByUser(
+            @PathVariable("userId") Long userId
+    ) {
+        ProgressSummary progressEntries = progressTableService.getMonthlyProgress(userId);
+        if (progressEntries != null) {
+            ProgressSummaryResponse progressSummaryResponse = new ProgressSummaryResponse();
+            progressSummaryResponse.builder()
+                    .averageWeight(progressEntries.getAverageWeight())
+                    .averageWeight(progressEntries.getAverageCaloriesTaken())
+                    .build();
+            return ResponseEntity.ok(progressSummaryResponse);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
     @PutMapping("/user/{userId}/{entryId}")
     public ResponseEntity<ProgressTableResponse> updateProgressEntry(
             @PathVariable("userId") Long userId,
