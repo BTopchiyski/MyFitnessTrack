@@ -39,5 +39,8 @@ public class MeasurementResponse {
     @JsonProperty("forearmCircumference")
     private double forearmCircumference;
 
+    @JsonProperty("neckCircumference")
+    private double neckCircumference;
+
     private String error;
 }
