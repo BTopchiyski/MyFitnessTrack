@@ -19,4 +19,5 @@ public class MeasurementRequest {
     private double hipCircumference;
     private double wristCircumference;
     private double forearmCircumference;
+    private double neckCircumference;
 }

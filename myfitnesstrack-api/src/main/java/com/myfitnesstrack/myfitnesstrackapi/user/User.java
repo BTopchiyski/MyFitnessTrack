@@ -83,6 +83,8 @@ public class User implements UserDetails {
         return email;
     }
 
+    public Gender getGender() { return gender; }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

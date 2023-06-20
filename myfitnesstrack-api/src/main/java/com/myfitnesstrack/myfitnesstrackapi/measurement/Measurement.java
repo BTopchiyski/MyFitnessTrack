@@ -1,5 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.measurement;
 
+import com.myfitnesstrack.myfitnesstrackapi.user.Role;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -47,4 +48,13 @@ public class Measurement {
     @Min(value = 0, message = "Forearm circumference must be a positive value")
     @Column(name = "forearm_circumference")
     private double forearmCircumference;
+
+    @Min(value = 0, message = "Neck circumference must be a positive value")
+    @Column(name = "neck_circumference")
+    private double neckCircumference;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "activity_level")
+    private ActivityLevel activityLevel;
+
 }
