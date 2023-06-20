@@ -24,6 +24,8 @@ public class MacronutrientResponse {
     private double fatGrams;
     @JsonProperty("fat_percent")
     private double fatPercentage;
+    @JsonProperty("goal")
+    private String goal;
 
     private String error;
 }

@@ -45,4 +45,7 @@ public class Macronutrient {
     @Min(value = 0, message = "Fats must be greater than 0")
     @Column(name = "fat_percent")
     private double fatPercent;
+
+    @Column(name = "goal")
+    private String goal;
 }

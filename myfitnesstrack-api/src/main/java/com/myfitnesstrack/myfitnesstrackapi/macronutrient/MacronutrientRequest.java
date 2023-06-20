@@ -17,5 +17,6 @@ public class MacronutrientRequest {
     private double carbohydratePercent;
     private double fatGrams;
     private double fatPercentage;
+    private String goal;
 
 }
