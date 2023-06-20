@@ -42,7 +42,7 @@ public class MeasurementResponse {
     @JsonProperty("neckCircumference")
     private double neckCircumference;
 
-    @JsonProperty("activity_level")
+    @JsonProperty("activityLevel")
     private ActivityLevel activityLevel;
 
     private String error;
