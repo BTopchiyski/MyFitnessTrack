@@ -2,7 +2,7 @@ package com.myfitnesstrack.myfitnesstrackapi.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.Calorie;
-import com.myfitnesstrack.myfitnesstrackapi.measurement.Macronutrient;
+import com.myfitnesstrack.myfitnesstrackapi.macronutrient.Macronutrient;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
