@@ -1,6 +1,5 @@
 package com.myfitnesstrack.myfitnesstrackapi.macronutrient;
 
-import com.myfitnesstrack.myfitnesstrackapi.measurement.Macronutrient;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;

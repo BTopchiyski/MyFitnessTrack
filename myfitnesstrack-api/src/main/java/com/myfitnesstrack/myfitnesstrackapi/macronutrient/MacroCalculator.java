@@ -16,8 +16,8 @@ import java.util.Optional;
 @Service
 public class MacroCalculator {
 
-    UserRepository userRepository;
-    CalorieCalculator calorieCalculator;
+    private final UserRepository userRepository;
+    private final CalorieCalculator calorieCalculator;
 
     public List<MacronutrientSplit> getAllSplits(Measurement measurement) {
         List<MacronutrientSplit> splits = new ArrayList<>();
