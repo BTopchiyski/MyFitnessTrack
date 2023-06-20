@@ -1,4 +1,4 @@
-package com.myfitnesstrack.myfitnesstrackapi.calculator;
+package com.myfitnesstrack.myfitnesstrackapi.macronutrient;
 
 public class MacronutrientSplit {
     private double proteins;

@@ -1,4 +1,4 @@
-package com.myfitnesstrack.myfitnesstrackapi.measurement;
+package com.myfitnesstrack.myfitnesstrackapi.activityLevel;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

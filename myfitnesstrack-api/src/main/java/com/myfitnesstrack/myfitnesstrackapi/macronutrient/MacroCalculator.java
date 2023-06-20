@@ -1,5 +1,7 @@
-package com.myfitnesstrack.myfitnesstrackapi.calculator;
+package com.myfitnesstrack.myfitnesstrackapi.macronutrient;
 
+import com.myfitnesstrack.myfitnesstrackapi.calculator.CalorieCalculator;
+import com.myfitnesstrack.myfitnesstrackapi.macronutrient.MacronutrientSplit;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
@@ -9,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public class MacroCalcolator {
+public class MacroCalculator {
 
     UserRepository userRepository;
     CalorieCalculator calorieCalculator;
