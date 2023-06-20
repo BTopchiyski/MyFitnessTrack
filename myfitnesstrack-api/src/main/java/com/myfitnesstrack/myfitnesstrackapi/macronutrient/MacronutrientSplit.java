@@ -8,6 +8,15 @@ public class MacronutrientSplit {
     private double carbohydratePercentage;
     private double fatPercentage;
     private double calories;
+    private String goal;
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
 
     public double getCalories() {
         return calories;
@@ -22,7 +31,7 @@ public class MacronutrientSplit {
     }
 
     public void setProteins() {
-        this.proteins = (this.getProteinPercentage() * this.getCalories()) / 4;
+        this.proteins = (Math.round(this.getProteinPercentage() * this.getCalories()) / 4);
     }
 
     public double getCarbohydrates() {
@@ -30,7 +39,7 @@ public class MacronutrientSplit {
     }
 
     public void setCarbohydrates() {
-        this.carbohydrates = (this.getProteinPercentage() * this.getCalories()) / 4;
+        this.carbohydrates = Math.round((this.getCarbohydratePercentage() * this.getCalories()) / 4);
     }
 
     public double getFats() {
@@ -38,11 +47,11 @@ public class MacronutrientSplit {
     }
 
     public void setFats() {
-        this.fats = (this.getProteinPercentage() * this.getCalories()) / 9;
+        this.fats = Math.round((this.getFatPercentage() * this.getCalories()) / 9);
     }
 
     public double getProteinPercentage() {
-        return proteinPercentage;
+        return proteinPercentage/100;
     }
 
     public void setProteinPercentage(double proteinPercentage) {
@@ -50,7 +59,7 @@ public class MacronutrientSplit {
     }
 
     public double getCarbohydratePercentage() {
-        return carbohydratePercentage;
+        return carbohydratePercentage/100;
     }
 
     public void setCarbohydratePercentage(double carbohydratePercentage) {
@@ -58,7 +67,7 @@ public class MacronutrientSplit {
     }
 
     public double getFatPercentage() {
-        return fatPercentage;
+        return fatPercentage/100;
     }
 
     public void setFatPercentage(double fatPercentage) {
