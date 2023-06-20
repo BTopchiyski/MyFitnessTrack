@@ -1,6 +1,7 @@
 package com.myfitnesstrack.myfitnesstrackapi.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.Calorie;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.progress.ProgressTable;
 import com.myfitnesstrack.myfitnesstrackapi.token.Token;
@@ -64,6 +65,10 @@ public class User implements UserDetails {
     @JsonIgnore
     @OneToOne(mappedBy = "user")
     private Measurement measurement;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user")
+    private Calorie calorieGoal;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;

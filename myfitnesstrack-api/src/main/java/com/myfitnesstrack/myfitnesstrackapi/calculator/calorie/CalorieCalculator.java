@@ -1,18 +1,21 @@
-package com.myfitnesstrack.myfitnesstrackapi.calculator;
+package com.myfitnesstrack.myfitnesstrackapi.calculator.calorie;
 
+import com.myfitnesstrack.myfitnesstrackapi.calculator.BodyFatCalculator;
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class CalorieCalculator {
 
-    BodyFatCalculator bodyFatCalculator;
-    UserRepository userRepository;
+    private final BodyFatCalculator bodyFatCalculator;
+    private final UserRepository userRepository;
 
     public double calculateBMR(Measurement measurement){
         double leanBodyMass = bodyFatCalculator.calculateLeanBodyMass(measurement);
