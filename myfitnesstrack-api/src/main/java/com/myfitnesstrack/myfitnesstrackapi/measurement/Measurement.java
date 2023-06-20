@@ -1,6 +1,6 @@
 package com.myfitnesstrack.myfitnesstrackapi.measurement;
 
-import com.myfitnesstrack.myfitnesstrackapi.user.Role;
+import com.myfitnesstrack.myfitnesstrackapi.activityLevel.ActivityLevel;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
