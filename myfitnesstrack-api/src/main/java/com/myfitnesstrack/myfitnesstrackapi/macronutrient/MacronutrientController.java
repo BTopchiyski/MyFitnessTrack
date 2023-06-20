@@ -1,6 +1,7 @@
 package com.myfitnesstrack.myfitnesstrackapi.macronutrient;
 
 import com.myfitnesstrack.myfitnesstrackapi.measurement.Macronutrient;
+import com.myfitnesstrack.myfitnesstrackapi.measurement.Measurement;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("api/v1/macronutrient")
@@ -19,6 +24,7 @@ public class MacronutrientController {
 
     private final UserRepository userRepository;
     private final MacronutrientRepository macronutrientRepository;
+    private final MacroCalculator macroCalculator;
 
     @GetMapping
     public ResponseEntity<MacronutrientResponse> getMacronutrients() {
@@ -44,6 +50,46 @@ public class MacronutrientController {
         }
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<MacronutrientResponse>> getAllMacronutrients() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            Measurement measurement = user.getMeasurement();
+            macroCalculator.getAllSplits(measurement);
+            if( measurement != null) {
+                List<MacronutrientSplit> splits = macroCalculator.getAllSplits(measurement);
+                List<MacronutrientResponse> responses = splits.stream()
+                        .map(this::mapToMacronutrientResponse)
+                        .collect(Collectors.toList());
+
+                return ResponseEntity.ok(responses);
+            }
+
+            MacronutrientResponse errorResponse = MacronutrientResponse.builder()
+                    .error("Measurements not found")
+                    .build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonList(errorResponse));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
+    private MacronutrientResponse mapToMacronutrientResponse(MacronutrientSplit split) {
+        MacronutrientResponse response = new MacronutrientResponse();
+        response.setProteinGrams(split.getProteins());
+        response.setProteinPercentage(split.getProteinPercentage());
+        response.setCarbohydrateGrams(split.getCarbohydrates());
+        response.setFatGrams(split.getFats());
+        response.setFatPercentage(split.getFatPercentage());
+
+        return response;
+    }
+
     private MacronutrientResponse getMacronutrientResponse(Macronutrient macronutrient) {
         MacronutrientResponse response = MacronutrientResponse.builder()
                 .carbohydrateGrams(macronutrient.getCarbohydrates())
@@ -67,6 +113,14 @@ public class MacronutrientController {
             String email = authentication.getName();
             User user = userRepository.findByEmail(email)
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            if (user.getMacronutrient() != null) {
+                Macronutrient macronutrient = createMacronutrients(macronutrientRequest, user);
+                user.setMacronutrient(macronutrient);
+                userRepository.save(user);
+                MacronutrientResponse response = getMacronutrientResponse(macronutrient);
+                return ResponseEntity.ok(response);
+            }
 
             Macronutrient macronutrient = createMacronutrients(macronutrientRequest, user);
             macronutrientRepository.save(macronutrient);

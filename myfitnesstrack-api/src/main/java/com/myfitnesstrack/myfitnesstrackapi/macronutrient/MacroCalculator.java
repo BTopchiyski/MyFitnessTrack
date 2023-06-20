@@ -6,14 +6,26 @@ import com.myfitnesstrack.myfitnesstrackapi.user.Gender;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Service
 public class MacroCalculator {
 
     UserRepository userRepository;
     CalorieCalculator calorieCalculator;
+
+    public List<MacronutrientSplit> getAllSplits(Measurement measurement) {
+        List<MacronutrientSplit> splits = new ArrayList<>();
+        splits.add(getWeightLossSplit(measurement));
+        splits.add(getWeightMaintainSplit(measurement));
+        splits.add(getWeightGainSplit(measurement));
+        return splits;
+    }
 
     public MacronutrientSplit getWeightLossSplit(Measurement measurement){
         double calories = calorieCalculator.calculateWeightLossCalories(measurement);

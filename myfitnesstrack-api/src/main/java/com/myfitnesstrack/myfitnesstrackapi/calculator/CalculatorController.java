@@ -35,6 +35,15 @@ public class CalculatorController {
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             double calorieGoal = calorieRequest.getCalorie();
+            if( user.getCalorieGoal() != null){
+                user.getCalorieGoal().setCalories(calorieGoal);
+                userRepository.save(user);
+                CalorieResponse response = CalorieResponse.builder()
+                        .calorie(calorieGoal)
+                        .build();
+                return ResponseEntity.ok(response);
+            }
+
             Calorie calorie = new Calorie();
             calorie.setUser(user);
             calorie.setCalories(calorieGoal);
@@ -170,7 +179,7 @@ public class CalculatorController {
 
             Measurement measurement = user.getMeasurement();
             if (measurement != null){
-                double calorieGoal = calculator.calculateMaintainCaloriest(measurement);
+                double calorieGoal = calculator.calculateWeightGainCalories(measurement);
                 CalorieResponse response = CalorieResponse.builder()
                         .calorie(calorieGoal)
                         .build();
@@ -186,7 +195,7 @@ public class CalculatorController {
         }
     }
 
-    @GetMapping("/lose")
+    @GetMapping("/loose")
     public ResponseEntity<CalorieResponse> getCalorieLose() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -197,7 +206,7 @@ public class CalculatorController {
 
             Measurement measurement = user.getMeasurement();
             if (measurement != null){
-                double calorieGoal = calculator.calculateMaintainCaloriest(measurement);
+                double calorieGoal = calculator.calculateWeightLossCalories(measurement);
                 CalorieResponse response = CalorieResponse.builder()
                         .calorie(calorieGoal)
                         .build();

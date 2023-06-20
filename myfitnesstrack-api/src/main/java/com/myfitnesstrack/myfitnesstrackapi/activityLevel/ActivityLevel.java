@@ -14,4 +14,8 @@ public enum ActivityLevel {
 
     @Getter
     private final String activityLevel;
+
+    public double getNumericValue() {
+        return Double.parseDouble(activityLevel);
+    }
 }
