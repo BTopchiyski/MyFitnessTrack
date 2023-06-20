@@ -21,17 +21,18 @@ public class MacroCalculator {
 
     public List<MacronutrientSplit> getAllSplits(Measurement measurement) {
         List<MacronutrientSplit> splits = new ArrayList<>();
-        splits.add(getWeightLossSplit(measurement));
-        splits.add(getWeightMaintainSplit(measurement));
-        splits.add(getWeightGainSplit(measurement));
+        splits.add(getWeightLossSplit(measurement, "Loss"));
+        splits.add(getWeightMaintainSplit(measurement, "Maintain"));
+        splits.add(getWeightGainSplit(measurement, "Gain"));
         return splits;
     }
 
-    public MacronutrientSplit getWeightLossSplit(Measurement measurement){
+    public MacronutrientSplit getWeightLossSplit(Measurement measurement, String goal){
         double calories = calorieCalculator.calculateWeightLossCalories(measurement);
         MacronutrientSplit macronutrientSplit = new MacronutrientSplit();
         Gender gender = this.getGender(measurement);
         macronutrientSplit.setCalories(calories);
+        macronutrientSplit.setGoal(goal);
 
         if(gender.equals(Gender.MALE)){
             setPercentages(macronutrientSplit, 40, 40, 20);
@@ -41,11 +42,12 @@ public class MacroCalculator {
         return this.setValues(macronutrientSplit);
     }
 
-    public MacronutrientSplit getWeightGainSplit(Measurement measurement){
+    public MacronutrientSplit getWeightGainSplit(Measurement measurement, String goal){
         double calories = calorieCalculator.calculateWeightGainCalories(measurement);
         MacronutrientSplit macronutrientSplit = new MacronutrientSplit();
         Gender gender = this.getGender(measurement);
         macronutrientSplit.setCalories(calories);
+        macronutrientSplit.setGoal(goal);
 
         if(gender.equals(Gender.MALE)){
             setPercentages(macronutrientSplit, 30, 40, 30);
@@ -55,11 +57,12 @@ public class MacroCalculator {
         return this.setValues(macronutrientSplit);
     }
 
-    public MacronutrientSplit getWeightMaintainSplit(Measurement measurement){
+    public MacronutrientSplit getWeightMaintainSplit(Measurement measurement, String goal){
         double calories = calorieCalculator.calculateMaintainCaloriest(measurement);
         MacronutrientSplit macronutrientSplit = new MacronutrientSplit();
         Gender gender = this.getGender(measurement);
         macronutrientSplit.setCalories(calories);
+        macronutrientSplit.setGoal(goal);
 
         if(gender.equals(Gender.MALE)){
             setPercentages(macronutrientSplit, 35, 35, 30);
