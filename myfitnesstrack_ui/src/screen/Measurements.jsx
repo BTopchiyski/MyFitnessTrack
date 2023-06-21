@@ -81,7 +81,6 @@ const Measurements = ({ navigation }) => {
           containerStyle={styles.dropDown}
           dropDownContainerStyle={styles.dropDownContainerStyle}
           listMode="SCROLLVIEW"
-          scrollViewProps={{ scrollEnabled: true }}
           open={open}
           value={activityLevel}
           items={items}
