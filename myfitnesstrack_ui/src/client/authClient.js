@@ -15,7 +15,7 @@ class AuthClient extends BaseClient {
     }
 
     async register({firstname, lastname, email, password, gender}) {
-        return await this._genericAuthenticate('auth/register', {firstname, lastname, email, password, gender})
+        return await this._genericAuthenticate('auth/register', {firstname, lastname, email, password, gender, role:'USER'})
     }
 
     async logout() {

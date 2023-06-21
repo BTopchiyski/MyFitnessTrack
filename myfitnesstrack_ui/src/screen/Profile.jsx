@@ -64,7 +64,7 @@ const Profile = ({ navigation }) => {
       <Separator />
       <Button onPress={goToMeasurements} title="Measurements" />
       <Button onPress={goToCalorieGoals} title="Calorie goals" />
-      <Button onPress={goToMacroGoals} title="Marconutrients goals" />
+      <Button onPress={goToMacroGoals} title="Marconutrient goals" />
       <Button onPress={logout} title="Log out" />
     </ScrollView>
   )

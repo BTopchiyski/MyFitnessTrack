@@ -10,11 +10,15 @@ const Login = ({ navigation }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const onPress = async () => {
+  const login = async () => {
     const response = await authClient.login(email, password)
     if (!isEmpty(response) && isEmpty(response?.error)) {
       navigation.reset({ index: 0, routes: [{ name: 'Tabs' }] })
     }
+  }
+
+  const goToRegister = () => {
+    navigation.push('Register')
   }
 
   return (
@@ -22,8 +26,8 @@ const Login = ({ navigation }) => {
       <Text style={styles.text}>Login</Text>
       <Input title="Email" onChangeText={setEmail} />
       <Input title="Password" onChangeText={setPassword} secure />
-      <Button title="Login" onPress={onPress} />
-
+      <Button title="Login" onPress={login} />
+      <Button title="Register" onPress={goToRegister} />
     </SafeAreaView>
   )
 }

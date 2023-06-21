@@ -8,6 +8,7 @@ import Measurements from '../screen/Measurements';
 import DailyGoals from '../screen/DailyGoals';
 import CalorieGoals from '../screen/CalorieGoals';
 import MacroGoals from '../screen/MacroGoals';
+import Register from '../screen/Register';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ const Stacks = () => {
         <Stack.Screen name="DailyGoals" component={DailyGoals} />
         <Stack.Screen name="CalorieGoals" component={CalorieGoals} />
         <Stack.Screen name="MacroGoals" component={MacroGoals} />
+        <Stack.Screen name="Register" component={Register} />
 
       </Stack.Group>
     </Stack.Navigator>
