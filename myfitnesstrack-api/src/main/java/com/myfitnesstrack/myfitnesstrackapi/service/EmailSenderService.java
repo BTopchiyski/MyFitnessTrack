@@ -1,3 +1,4 @@
+/*
 package com.myfitnesstrack.myfitnesstrackapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,3 +28,4 @@ public class EmailSenderService {
     }
 
 }
+*/

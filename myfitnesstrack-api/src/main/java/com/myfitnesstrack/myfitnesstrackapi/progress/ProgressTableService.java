@@ -111,16 +111,18 @@ public class ProgressTableService {
     public ProgressSummary calculateAverageProgress(List<ProgressTable> entries) {
         double totalCaloriesTaken = 0;
         double totalWeight = 0;
+        double startWeight = !entries.isEmpty() ? entries.get(0).getWeightInKilograms() : 0;
 
         for (ProgressTable entry : entries) {
             totalCaloriesTaken += entry.getCaloriesTaken();
             totalWeight += entry.getWeightInKilograms();
         }
 
-        double averageCaloriesTaken = entries.isEmpty() ? 0 : (double) totalCaloriesTaken / entries.size();
-        double averageWeight = entries.isEmpty() ? 0 : totalWeight / entries.size();
+        double averageCaloriesTaken = entries.isEmpty() ? 0 : Math.round((double) totalCaloriesTaken / entries.size());
+        double averageWeightLost = entries.isEmpty() ? 0 : Math.abs(startWeight - (totalWeight / entries.size()));
+        double averageWeightLostRounded = Math.round(averageWeightLost * 100.0) / 100.0;
 
-        ProgressSummary progressSummary = new ProgressSummary(averageCaloriesTaken, averageWeight);
+        ProgressSummary progressSummary = new ProgressSummary(averageCaloriesTaken, averageWeightLostRounded);
         return progressSummary;
     }
 }

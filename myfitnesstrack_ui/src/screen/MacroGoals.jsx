@@ -21,7 +21,7 @@ const MacroGoals = ({ navigation }) => {
   useEffect(() => {
     (async () => {
       const response = await goalClient.getMacroGoals()
-      if(response?.error) {
+      if(!isEmpty(response) && !isEmpty(response[0]?.error)) {
         createMissingMeasurementsPrompt(navigation.goBack)
         return;
       }

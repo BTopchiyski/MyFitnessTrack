@@ -5,6 +5,8 @@ import SimpleButton from '../components/SimpleButton'
 import { useFocusEffect } from '@react-navigation/native'
 import Input from '../components/Input'
 import Separator from '../components/Separator'
+import progressClient from '../client/progressClient'
+import { isEmpty } from 'lodash'
 
 const randomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -25,23 +27,44 @@ const MOTIVATIONAL_QUOTES = [
 ]
 
 
-const Monthly = () => {
-  
+const Monthly = (navigation) => {
   const [motivationQuote, setQuote] = useState('');
-  
+  const [calories, setCalories] = useState()
+  const [weight, setWeight] = useState()
+
+  //set motivation quotes
   useFocusEffect(
     useCallback(() => {
       const newIndex = randomNumber(0, MOTIVATIONAL_QUOTES.length - 1);
       setQuote(MOTIVATIONAL_QUOTES[newIndex])
-    }, [])
+    }, [navigation])
+  );
+//set weight and calories
+  useFocusEffect(
+    useCallback(() => {
+      (async () => {
+        const response = await progressClient.getMonthlyEntry()
+        console.log(response)
+        if (!isEmpty(response) && !isEmpty(response?.error)) {
+          createMissingProgressEntriesPrompt(navigation.goBack)
+          return;
+        }
+        if (isEmpty(response.error) && response?.averageCaloriesTaken !== null){
+          setCalories(response.averageCaloriesTaken)
+        }
+        if (isEmpty(response.error) && response?.averageWeight !== null){
+          setWeight(response?.averageWeight)
+        }
+      })()
+    }, [navigation])
   );
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>This month you've lost: </Text>
-      <Input value="9" suffix="KG" editable={false} />
+      <Input value={weight} suffix="KG" editable={false} />
       <Separator />
       <Text style={styles.text}>Your average calories are:</Text>
-      <Input value="2653" suffix="kcal" editable={false} />
+      <Input value={calories} suffix="kcal" editable={false} />
       <Separator />
       <Text style={[styles.text, styles.italic]}>"{motivationQuote}"</Text>
     </SafeAreaView>

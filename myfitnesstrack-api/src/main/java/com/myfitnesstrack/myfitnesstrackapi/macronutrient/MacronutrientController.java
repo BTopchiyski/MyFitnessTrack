@@ -59,8 +59,8 @@ public class MacronutrientController {
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             Measurement measurement = user.getMeasurement();
-            macroCalculator.getAllSplits(measurement);
             if( measurement != null) {
+                macroCalculator.getAllSplits(measurement);
                 List<MacronutrientSplit> splits = macroCalculator.getAllSplits(measurement);
                 List<MacronutrientResponse> responses = splits.stream()
                         .map(this::mapToMacronutrientResponse)

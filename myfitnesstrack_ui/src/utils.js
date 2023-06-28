@@ -20,6 +20,25 @@ export const createMissingMeasurementsPrompt = (onPress) => {
   )
 }
 
+export const createMissingProgressEntriesPrompt = (onPress) => {
+  Alert.alert(
+    'Missing data',
+    'Please add a progress entry to see progress',
+    [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+        onPress
+      },
+      {
+        text: 'Ok',
+        style: 'default',
+        onPress
+      },
+    ],
+  )
+}
+
 export const createAlert = (title, message) => {
   Alert.alert(
     title,

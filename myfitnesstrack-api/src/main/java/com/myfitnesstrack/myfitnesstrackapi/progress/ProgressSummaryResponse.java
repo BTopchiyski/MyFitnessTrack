@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProgressSummaryResponse {
-    @JsonProperty("averageCalories")
     private double averageCaloriesTaken;
-    @JsonProperty("averageWeight")
     private double averageWeight;
+    private String error;
 }

@@ -17,6 +17,7 @@ public class MeasurementResponseMapper {
                 .wristCircumference(measurement.getWristCircumference())
                 .forearmCircumference(measurement.getForearmCircumference())
                 .neckCircumference(measurement.getNeckCircumference())
+                .activityLevel(measurement.getActivityLevel())
                 .build();
     }
 

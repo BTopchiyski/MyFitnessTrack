@@ -12,14 +12,6 @@ import { useFocusEffect } from '@react-navigation/native'
 
 
 const Measurements = ({ navigation }) => {
-  // const [weight, setWeight] = useState()
-  // const [age, setAge] = useState()
-  // const [waist, setWaist] = useState()
-  // const [neck, setNeck] = useState()
-  // const [wrist, setWrist] = useState()
-  // const [forearm, setForearm] = useState()
-  // const [hip, setHip] = useState()
-  // const [height, setHeight] = useState()
   const [measurements, setMeasurements] = useState({
     weightInKilograms: 0,
     waistCircumference: 0, 
@@ -31,7 +23,6 @@ const Measurements = ({ navigation }) => {
     height: 0
   })
 
-  // const [activityLevels, setActivityLevel] = useState([]);
   const [open, setOpen] = useState(false);
   const [activityLevel, setActivityLevel] = useState(null);
   const [items, setItems] = useState([
@@ -53,6 +44,7 @@ const Measurements = ({ navigation }) => {
         const currentMeasurement = await activityClient.getMeasurements();
         if(!isEmpty(currentMeasurement) && isEmpty(currentMeasurement?.error)) {
           setMeasurements(currentMeasurement)
+          setActivityLevel(currentMeasurement.activityLevel)
         }
       })()
     }, [])

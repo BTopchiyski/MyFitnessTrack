@@ -1,6 +1,5 @@
 package com.myfitnesstrack.myfitnesstrackapi.progress;
 
-import com.myfitnesstrack.myfitnesstrackapi.calculator.calorie.CalorieResponse;
 import com.myfitnesstrack.myfitnesstrackapi.user.User;
 import com.myfitnesstrack.myfitnesstrackapi.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -66,47 +65,75 @@ public class ProgressTableController {
         }
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<ProgressTableResponse>> getProgressEntriesByUser(@PathVariable("userId") Long userId) {
-        List<ProgressTable> progressEntries = progressTableService.getProgressEntriesByUser(userId);
-        List<ProgressTableResponse> responses = ProgressTableResponseMapper.mapProgressEntriesToList(progressEntries);
+    @GetMapping("/user")
+    public ResponseEntity<List<ProgressTableResponse>> getProgressEntriesByUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (responses.isEmpty()) {
-            return ResponseEntity.notFound().build();
+        if (authentication != null && authentication.isAuthenticated()) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            Long userId = user.getId();
+            List<ProgressTable> progressEntries = progressTableService.getProgressEntriesByUser(userId);
+            List<ProgressTableResponse> responses = ProgressTableResponseMapper.mapProgressEntriesToList(progressEntries);
+
+            if (responses.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(responses);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("/user/{userId}/weekly")
+    @GetMapping("/user/weekly")
     public ResponseEntity<ProgressSummaryResponse> getWeeklyProgressEntriesByUser(
-            @PathVariable("userId") Long userId
     ) {
-        ProgressSummary progressEntries = progressTableService.getWeeklyProgress(userId);
-        if (progressEntries != null) {
-            ProgressSummaryResponse progressSummaryResponse = new ProgressSummaryResponse();
-            progressSummaryResponse.builder()
-                    .averageWeight(progressEntries.getAverageWeight())
-                    .averageWeight(progressEntries.getAverageCaloriesTaken())
-                    .build();
-            return ResponseEntity.ok(progressSummaryResponse);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            Long userId = user.getId();
+            ProgressSummary progressSummary = progressTableService.getWeeklyProgress(userId);
+            return getProgressSummaryResponseResponseEntity(progressSummary);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/user/{userId}/monthly")
+    @GetMapping("/user/monthly")
     public ResponseEntity<ProgressSummaryResponse> getMonthlyProgressEntriesByUser(
-            @PathVariable("userId") Long userId
     ) {
-        ProgressSummary progressEntries = progressTableService.getMonthlyProgress(userId);
-        if (progressEntries != null) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            String email = authentication.getName();
+            User user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            Long userId = user.getId();
+            ProgressSummary progressSummary = progressTableService.getMonthlyProgress(userId);
+            return getProgressSummaryResponseResponseEntity(progressSummary);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
+
+    private ResponseEntity<ProgressSummaryResponse> getProgressSummaryResponseResponseEntity(ProgressSummary progressSummary) {
+        if (progressSummary != null) {
             ProgressSummaryResponse progressSummaryResponse = new ProgressSummaryResponse();
-            progressSummaryResponse.builder()
-                    .averageWeight(progressEntries.getAverageWeight())
-                    .averageWeight(progressEntries.getAverageCaloriesTaken())
-                    .build();
+            progressSummaryResponse.setAverageWeight(progressSummary.getAverageWeight());
+            progressSummaryResponse.setAverageCaloriesTaken(progressSummary.getAverageCaloriesTaken());
             return ResponseEntity.ok(progressSummaryResponse);
         }
-        return ResponseEntity.notFound().build();
+        ProgressSummaryResponse errorResponse = ProgressSummaryResponse.builder()
+                .error("No progress entries found")
+                .build();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @PutMapping("/user/{userId}/{entryId}")
