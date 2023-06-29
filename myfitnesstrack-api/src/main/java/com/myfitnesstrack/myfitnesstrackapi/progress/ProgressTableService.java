@@ -31,8 +31,10 @@ public class ProgressTableService {
         progressEntry.setCaloriesTaken(request.getCalories());
         progressEntry.setDate(currentDate);
         progressEntry.setUser(user);
-
-        return progressTableRepository.save(progressEntry);
+        progressTableRepository.save(progressEntry);
+        user.setProgressTables(progressTableRepository.findAllByUserId(user.getId()));
+        userRepository.save(user);
+        return progressEntry;
     }
 
     public List<ProgressTable> getAllProgressEntries() {

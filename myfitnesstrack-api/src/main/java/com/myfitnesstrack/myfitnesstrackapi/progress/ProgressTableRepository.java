@@ -15,4 +15,6 @@ public interface ProgressTableRepository extends JpaRepository<ProgressTable, Lo
     List<ProgressTable> findByUserAndDateAfter(Optional<User> user, LocalDate sevenDaysAgo);
 
     Optional<ProgressTable> findByUserAndDate(User user, LocalDate currentDate);
+
+    List<ProgressTable> findAllByUserId(Long id);
 }

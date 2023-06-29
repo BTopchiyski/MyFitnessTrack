@@ -34,7 +34,6 @@ public class ProgressTable {
     private int caloriesTaken;
 
     @NotNull(message = "Date is required")
-    @Column(unique = true)
     private LocalDate date;
 
 }
